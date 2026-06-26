@@ -11,12 +11,12 @@
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
-        
         <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body id="page-top">
+
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
@@ -45,63 +45,232 @@
             </div>
         </header>
 
-        <!-- Project Image -->
+        <!-- Project Hero Image -->
         <section class="page-section" id="project-image">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-10 text-center">
                         <img class="img-fluid rounded shadow"
                             src="assets/img/drone.png"
-                            alt="Drone PID Project Image" />
-
+                            alt="PID Hovering Platform" />
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Project Description -->
-        <section class="page-section bg-light" id="project-description">
+        <!-- Overview -->
+        <section class="page-section bg-light" id="overview">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
-                        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">About This Project</h2>
+                        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Overview</h2>
+                        <div class="divider-custom">
+                            <div class="divider-custom-line"></div>
+                        </div>
+                        <p class="lead">
+                            Developed for the third-year control systems course ENEL321, this hover platform was designed as a physical teaching tool to demonstrate the effect of PID gain tuning on real-world system response. The platform constrains a quadcopter frame to vertical motion only, allowing students to directly observe how different controller gain combinations affect transient and steady-state behaviour through live visualisation and measured response metrics.
+                        </p>
+                        <p class="lead">
+                            The completed platform has been used as a live demonstration at multiple Electrical Engineering department open days, and integrated into ENEL321 lectures as a teaching aid for illustrating PID control concepts.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Role and Contributions -->
+        <section class="page-section" id="role">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Role &amp; Contributions</h2>
+                        <div class="divider-custom">
+                            <div class="divider-custom-line"></div>
+                        </div>
+                        <p class="lead">
+                            This project was completed in a team of three with clearly defined responsibilities. My primary contributions included software implementation, control system integration, PID gain tuning, and development of the real-time graphing and analysis interface. Hardware fabrication and electronics integration were handled by the other team members.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Overview: Hardware, Control, UI -->
+        <section class="page-section bg-light" id="project-detail">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Project Overview</h2>
                         <div class="divider-custom">
                             <div class="divider-custom-line"></div>
                         </div>
 
-                        <!-- Opening paragraph: hook + role + outcome -->
-                        <p class="lead">
-                            PID control is a concept that's straightforward on paper but notoriously tricky to develop an intuition for. This project set out to make that intuition tangible — a physically constrained quadcopter platform that lets you select different gain combinations and immediately see and measure the effect on system response. I was responsible for [your role here — e.g. the control system implementation and embedded software], working as part of a team to deliver a fully functional demonstrator.
-                        </p>
-
-                        <!-- Technical summary -->
-                        <h5 class="text-uppercase mt-4 mb-3">Hardware</h5>
+                        <h5 class="text-uppercase mt-4 mb-3">Hardware Setup</h5>
                         <ul class="lead">
-                            <li>Modular quadcopter frame restricted to one degree of freedom (vertical motion only), fixed to four guide poles to prevent lateral or rotational movement</li>
-                            <li>Four BLDC motors providing vertical thrust, driven by one ESC per two motors</li>
-                            <li>LIDAR sensor providing altitude feedback to the controller</li>
+                            <li>Modular quadcopter frame restricted to one degree of freedom (vertical motion only), fixed to four guide poles — one per arm — to prevent lateral or rotational movement</li>
+                            <li>Platform starts at a base position and rises to a predefined reference height</li>
+                            <li>Four BLDC motors providing vertical thrust, with one ESC per two motors</li>
+                            <li>LIDAR sensor used to measure altitude for feedback</li>
                         </ul>
 
                         <h5 class="text-uppercase mt-4 mb-3">Control System</h5>
                         <ul class="lead">
-                            <li>PID controller regulating vertical position, rising from a base position to a predefined reference height</li>
-                            <li>User-selectable P, I, and D gain values, allowing multiple combinations to be tested without recompiling</li>
-                            <li>Controller implemented in C++ running on the drone hardware</li>
+                            <li>PID controller regulating vertical position</li>
+                            <li>User-adjustable PID gains with predefined selectable values for K<sub>p</sub>, K<sub>i</sub>, and K<sub>d</sub></li>
+                        </ul>
+
+                        <!-- Control loop diagram placeholder -->
+                        <div class="text-center bg-white border rounded d-flex align-items-center justify-content-center my-4" style="height: 220px;">
+                            <div class="text-secondary">
+                                <i class="fas fa-image fa-3x mb-3 d-block"></i>
+                                <p class="mb-0 fw-bold">Figure 1: PID Control Feedback Loop</p>
+                                <small>Replace with control loop diagram</small>
+                            </div>
+                        </div>
+
+                        <h5 class="text-uppercase mt-4 mb-3">User Interface</h5>
+                        <ul class="lead">
+                            <li>Live graphing of drone height against time, bridging the gap between theoretical and practical</li>
+                            <li>Adjustable gain levels for P, I, and D allowing for multiple combinations</li>
+                            <li>Calculation of rise time, overshoot, steady-state value, settling time, and max height for each flight</li>
+                            <li>Software written and implemented in C++ for drone control; graphing done in Python</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Highlights -->
+        <section class="page-section" id="technical">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Technical Highlights</h2>
+                        <div class="divider-custom">
+                            <div class="divider-custom-line"></div>
+                        </div>
+                        <p class="lead text-muted fst-italic">These focus on the sections I implemented. For further detail on hardware and electronics please see the attached reports below.</p>
+
+                        <h5 class="text-uppercase mt-4 mb-3">Control</h5>
+                        <ul class="lead">
+                            <li>Three discrete gain levels (low, medium, high) for K<sub>p</sub>, K<sub>i</sub>, and K<sub>d</sub>, designed to produce clearly distinguishable system behaviours for educational demonstration</li>
+                            <li>Low settings enable isolated control modes (e.g. proportional-only response); medium settings provide a stable baseline PID configuration; high settings demonstrate extreme system responses such as overshoot and oscillation</li>
                         </ul>
 
                         <h5 class="text-uppercase mt-4 mb-3">User Interface</h5>
                         <ul class="lead">
-                            <li>Live graph of drone height against time, bridging the gap between theoretical step response curves and physical behaviour</li>
-                            <li>Automatic calculation of rise time, overshoot, settling time, steady-state value, and max height for each flight</li>
-                            <li>Graphing implemented in Python</li>
+                            <li>Real-time altitude response plotting during demonstrations, with recorded datasets saved for later replay and analysis</li>
+                            <li>Potentiometer-based gain adjustment system allowing rapid configuration between flights</li>
+                            <li>Automated calculation of key performance metrics including rise time, settling time, steady-state value, overshoot, peak value, and peak time</li>
+                            <li>Steady-state estimation computed using a moving window average with tolerance-based convergence detection to improve metric accuracy</li>
                         </ul>
+
+                        <h5 class="text-uppercase mt-4 mb-3">Software</h5>
+                        <ul class="lead">
+                            <li>LIDAR measurement noise characterised experimentally and filtered to improve control stability</li>
+                            <li>Derivative term filtering implemented to reduce noise amplification effects</li>
+                            <li>Sensor sampling rates evaluated experimentally; 40 Hz selected as the optimal reliable operating frequency</li>
+                            <li>Modular software architecture separating control, sensing, and UI components</li>
+                        </ul>
+
+                        <!-- Software diagram placeholder -->
+                        <div class="text-center bg-light border rounded d-flex align-items-center justify-content-center my-4" style="height: 220px;">
+                            <div class="text-secondary">
+                                <i class="fas fa-image fa-3x mb-3 d-block"></i>
+                                <p class="mb-0 fw-bold">Software Architecture Diagram</p>
+                                <small>Replace with software diagram image</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results -->
+        <section class="page-section bg-light" id="results">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Results</h2>
+                        <div class="divider-custom">
+                            <div class="divider-custom-line"></div>
+                        </div>
+                        <p class="lead">
+                            The PID hover platform has been used in multiple Electrical Engineering department open day demonstrations, led by myself and teammate Brendan Booth. These sessions included a brief explanation of control systems, an overview of the project, and discussion of how PID control is applied in industry.
+                        </p>
+
+                        <!-- Demo photo placeholder -->
+                        <div class="text-center bg-white border rounded d-flex align-items-center justify-content-center my-4" style="height: 300px;">
+                            <div class="text-secondary">
+                                <i class="fas fa-image fa-3x mb-3 d-block"></i>
+                                <p class="mb-0 fw-bold">Open Day Demonstration Photo</p>
+                                <small>Replace with demo image</small>
+                            </div>
+                        </div>
+
+                        <p class="lead">
+                            The system has also been used in the ENEL321 controls course (2026) to demonstrate PID gain concepts, led by Brendan Booth and myself alongside lecturer Chris Hann. This demonstration utilised the live graphing projected on screen for the students to see.
+                        </p>
+                        <p class="lead">
+                            Feedback from this demonstration indicated that the hover platform improved student understanding of PID control, especially in relation to integral control behaviour. The platform has now been passed to lecturer Chris Hann to be used in future control courses.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reports & Downloads -->
+        <section class="page-section" id="reports">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Reports</h2>
+                        <div class="divider-custom">
+                            <div class="divider-custom-line"></div>
+                        </div>
+                        <div class="d-flex flex-column gap-3">
+
+                            <!-- PDF 1 -->
+                            <div class="d-flex align-items-center justify-content-between p-3 border rounded bg-light">
+                                <div>
+                                    <p class="fw-bold mb-0">Report Title One</p>
+                                    <small class="text-muted">Replace with description — e.g. Final Design Report</small>
+                                </div>
+                                <a href="assets/docs/report1.pdf" target="_blank" class="btn btn-primary ms-3 text-nowrap">
+                                    <i class="fas fa-file-pdf me-2"></i>Open PDF
+                                </a>
+                            </div>
+
+                            <!-- PDF 2 -->
+                            <div class="d-flex align-items-center justify-content-between p-3 border rounded bg-light">
+                                <div>
+                                    <p class="fw-bold mb-0">Report Title Two</p>
+                                    <small class="text-muted">Replace with description — e.g. Hardware Report</small>
+                                </div>
+                                <a href="assets/docs/report2.pdf" target="_blank" class="btn btn-primary ms-3 text-nowrap">
+                                    <i class="fas fa-file-pdf me-2"></i>Open PDF
+                                </a>
+                            </div>
+
+                            <!-- PDF 3 -->
+                            <div class="d-flex align-items-center justify-content-between p-3 border rounded bg-light">
+                                <div>
+                                    <p class="fw-bold mb-0">Report Title Three</p>
+                                    <small class="text-muted">Replace with description — e.g. Software Report</small>
+                                </div>
+                                <a href="assets/docs/report3.pdf" target="_blank" class="btn btn-primary ms-3 text-nowrap">
+                                    <i class="fas fa-file-pdf me-2"></i>Open PDF
+                                </a>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Back to Portfolio -->
-        <section class="page-section" id="back">
+        <section class="page-section bg-light" id="back">
             <div class="container text-center">
                 <a class="btn btn-primary btn-xl" href="index.html#portfolio">
                     <i class="fas fa-arrow-left me-2"></i>
