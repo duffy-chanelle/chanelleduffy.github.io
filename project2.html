@@ -11,12 +11,12 @@
         <!-- Font Awesome icons (free version)-->
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <!-- Google fonts-->
-        
         <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body id="page-top">
+
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
@@ -45,56 +45,119 @@
             </div>
         </header>
 
-        <!-- Project Image -->
+        <!-- Project Hero Image -->
         <section class="page-section" id="project-image">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-10 text-center">
                         <img class="img-fluid rounded shadow"
                             src="assets/img/Antenna.jpeg"
-                            alt="SpaceOps 30m Antenna, Warkworth" />
-
+                            alt="SpaceOps 30m Antenna, Warkworth"
+                            style="max-height: 75vh; width: auto;" />
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Project Description -->
-        <section class="page-section bg-light" id="project-description">
+        <!-- Overview -->
+        <section class="page-section bg-light" id="overview">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
-                        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">About This Project</h2>
+                        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Overview</h2>
+                        <div class="divider-custom">
+                            <div class="divider-custom-line"></div>
+                        </div>
+                        <p class="lead">
+                            Completed as part of a summer internship at SpaceOps NZ, this project focused on improving the pointing accuracy of the 30 m antenna at the Warkworth ground station. The existing field system and pointing model were experiencing pointing errors of up to 0.3°, which for a 30 m antenna can result in significant signal loss during spacecraft tracking operations. Previous mission-specific software had demonstrated that pointing errors as low as 0.002° were achievable, indicating that the antenna hardware itself was capable of substantially higher accuracy.
+                        </p>
+                        <p class="lead">
+                            The objective of the project was to investigate the underlying causes of these pointing errors and support the development and validation of a higher-accuracy pointing system. Over the course of the internship, the project evolved to include both redevelopment of existing field-system functionality and development of new antenna tracking capabilities, including velocity-based spacecraft tracking control. The resulting software was subsequently used during tracking operations associated with the Artemis II launch campaign in April 2026.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Role & Responsibilities -->
+        <section class="page-section" id="role">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Role &amp; Responsibilities</h2>
+                        <div class="divider-custom">
+                            <div class="divider-custom-line"></div>
+                        </div>
+                        <p class="lead">
+                            The internship was conducted with a high degree of independence, with responsibility for managing investigation direction, development priorities, and technical progress. My work focused primarily on:
+                        </p>
+                        <ul class="lead">
+                            <li>Investigating potential sources of pointing error within the existing field system, pointing model implementation, and control pipeline</li>
+                            <li>Analysing field-system log data and validating coordinate transformation behaviour</li>
+                            <li>Developing high-level Python software for antenna control, target tracking, scan automation, and structured data logging</li>
+                            <li>Supporting validation and operational testing of the antenna control system</li>
+                            <li>Developing and maintaining the project Concept of Operations (ConOps) documentation</li>
+                        </ul>
+                        <p class="lead">
+                            The software development component was completed collaboratively with a computer engineer, who managed the low-level Modbus communication interface while I focused on control logic, coordinate transforms, and algorithm development.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Highlights -->
+        <section class="page-section bg-light" id="technical">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Technical Highlights</h2>
                         <div class="divider-custom">
                             <div class="divider-custom-line"></div>
                         </div>
 
-                        <!-- Opening paragraph: hook + role + outcome -->
+                        <h5 class="text-uppercase mt-4 mb-3">Pointing Model Investigation</h5>
+                        <ul class="lead">
+                            <li>Investigated the implementation and behaviour of the existing antenna pointing model used within the field system</li>
+                            <li>Analysed previous datasets and generated new pointing models for comparison against operational performance</li>
+                            <li>Collected new datasets using the existing field system under varying environmental conditions</li>
+                            <li>Investigated additional contributors to pointing error including timing offsets, coordinate transformation discrepancies, and data quality issues</li>
+                            <li>Reverse engineered the current pointing-model generation software using produced logs, and wrote my own version for rapid generation of pointing models using pre-collected data</li>
+                        </ul>
+
+                        <h5 class="text-uppercase mt-4 mb-3">Software Development</h5>
+                        <p class="lead">Developed high-level Python software implementing key functionality of the existing field system:</p>
+                        <ul class="lead">
+                            <li>Implemented velocity control logic for tracking and positioning the antenna</li>
+                            <li>Developed coordinate handling functionality supporting both astronomical point-source observations (RA/Dec) and spacecraft ephemeris tracking</li>
+                            <li>Implemented my own version of the field system's scan algorithm (Fivepoint), involving scanning across a source in both directions, taking measurements at each point, fitting a Gaussian curve to the measurements, and calculating the pointing error</li>
+                            <li>Structured JSON-based data logging for pointing model training, validation, and debugging purposes</li>
+                        </ul>
+
+                        <h5 class="text-uppercase mt-4 mb-3">Validation &amp; Testing</h5>
+                        <ul class="lead">
+                            <li>Conducted staged validation using both simulated antenna environments and physical antenna testing</li>
+                            <li>Developed and tested safety mechanisms including hard/soft limits, velocity constraints, and weather-based shutdown</li>
+                            <li>Performed structured testing using observational datasets and live satellite tracking to validate pointing behaviour and software reliability</li>
+                        </ul>
+
+                        <h5 class="text-uppercase mt-4 mb-3">Operational Deployment</h5>
                         <p class="lead">
-                            PID control is a concept that's straightforward on paper but notoriously tricky to develop an intuition for. This project set out to make that intuition tangible — a physically constrained quadcopter platform that lets you select different gain combinations and immediately see and measure the effect on system response. I was responsible for [your role here — e.g. the control system implementation and embedded software], working as part of a team to deliver a fully functional demonstrator.
+                            A significant portion of the internship involved on-site testing at the Warkworth ground station. Development milestones were driven by active mission schedules, including CAPSTONE tracking for system validation as well as activities and preparation work associated with the Artemis II launch.
+                        </p>
+                        <p class="lead">
+                            In addition to software development and validation, operational responsibilities included antenna stow procedures, site security, and supporting maintenance activities during live operations.
                         </p>
 
-                        <!-- Technical summary -->
-                        <h5 class="text-uppercase mt-4 mb-3">Hardware</h5>
-                        <ul class="lead">
-                            <li>Modular quadcopter frame restricted to one degree of freedom (vertical motion only), fixed to four guide poles to prevent lateral or rotational movement</li>
-                            <li>Four BLDC motors providing vertical thrust, driven by one ESC per two motors</li>
-                            <li>LIDAR sensor providing altitude feedback to the controller</li>
-                        </ul>
+                        <!-- Image placeholder -->
+                        <div class="text-center bg-white border rounded d-flex align-items-center justify-content-center mt-4" style="height: 300px;">
+                            <div class="text-secondary">
+                                <i class="fas fa-image fa-3x mb-3 d-block"></i>
+                                <p class="mb-0 fw-bold">Project Image</p>
+                                <small>Replace this block with your image:<br><code>&lt;img class="img-fluid rounded shadow" src="assets/img/project2/your-image.png" alt="..." /&gt;</code></small>
+                            </div>
+                        </div>
 
-                        <h5 class="text-uppercase mt-4 mb-3">Control System</h5>
-                        <ul class="lead">
-                            <li>PID controller regulating vertical position, rising from a base position to a predefined reference height</li>
-                            <li>User-selectable P, I, and D gain values, allowing multiple combinations to be tested without recompiling</li>
-                            <li>Controller implemented in C++ running on the drone hardware</li>
-                        </ul>
-
-                        <h5 class="text-uppercase mt-4 mb-3">User Interface</h5>
-                        <ul class="lead">
-                            <li>Live graph of drone height against time, bridging the gap between theoretical step response curves and physical behaviour</li>
-                            <li>Automatic calculation of rise time, overshoot, settling time, steady-state value, and max height for each flight</li>
-                            <li>Graphing implemented in Python</li>
-                        </ul>
                     </div>
                 </div>
             </div>
